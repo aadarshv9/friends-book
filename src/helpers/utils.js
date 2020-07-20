@@ -8,5 +8,9 @@ export function getFormBody(params) {
     formBody.push(encodedKey + '=' + encodedValue);
   }
 
-  return formBody.join('&'); // 'username=aadarsh&password=123213'
+  return formBody.join('&'); // 'username=aakash&password=123213'
+}
+
+export function getAuthTokenFromLocalStorage() {
+  return localStorage.getItem('token');
 }
