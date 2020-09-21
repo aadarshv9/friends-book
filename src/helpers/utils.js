@@ -14,3 +14,10 @@ export function getFormBody(params) {
 export function getAuthTokenFromLocalStorage() {
   return localStorage.getItem('token');
 }
+
+export function appendScript(scriptToAppend) {
+  const script = document.createElement('script');
+  script.src = scriptToAppend;
+  script.async = true;
+  document.body.appendChild(script);
+}

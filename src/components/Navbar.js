@@ -22,11 +22,8 @@ class Navbar extends React.Component {
     return (
       <nav className="nav">
         <div className="left-div">
-          <Link to="/">
-            <img
-              src="https://ninjasfiles.s3.amazonaws.com/0000000000003454.png"
-              alt="logo"
-            />
+          <Link style={{ textDecoration: 'none' }} to="/">
+            <h2>FriendsBook</h2>
           </Link>
         </div>
         <div className="search-container">

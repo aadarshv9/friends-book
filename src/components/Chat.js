@@ -10,6 +10,7 @@ class Chat extends Component {
     this.state = {
       messages: [], // {content: 'some message', self: true}
       typedMessage: '',
+      isVisible: false,
     };
     this.socket = io.connect('http://54.237.158.65:5000');
     this.userEmail = props.user.email;
@@ -66,11 +67,14 @@ class Chat extends Component {
   };
 
   render() {
-    const { typedMessage, messages } = this.state;
+    const { typedMessage, messages, isVisible } = this.state;
 
     return (
       <div className="chat-container">
-        <div className="chat-header">
+        <div
+          className="chat-header"
+          onClick={() => this.setState({ isVisible: !isVisible })}
+        >
           Chat
           <img
             src="https://www.iconsdb.com/icons/preview/white/minus-5-xxl.png"
@@ -78,27 +82,33 @@ class Chat extends Component {
             height={17}
           />
         </div>
-        <div className="chat-messages">
-          {messages.map((message) => (
-            <div
-              className={
-                message.self
-                  ? 'chat-bubble self-chat'
-                  : 'chat-bubble other-chat'
-              }
-            >
-              {message.content}
+        {isVisible ? (
+          <div>
+            <div className="chat-messages">
+              {messages.map((message) => (
+                <div
+                  className={
+                    message.self
+                      ? 'chat-bubble self-chat'
+                      : 'chat-bubble other-chat'
+                  }
+                >
+                  {message.content}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="chat-footer">
-          <input
-            type="text"
-            value={typedMessage}
-            onChange={(e) => this.setState({ typedMessage: e.target.value })}
-          />
-          <button onClick={this.handleSubmit}>Submit</button>
-        </div>
+            <div className="chat-footer">
+              <input
+                type="text"
+                value={typedMessage}
+                onChange={(e) =>
+                  this.setState({ typedMessage: e.target.value })
+                }
+              />
+              <button onClick={this.handleSubmit}>Submit</button>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }

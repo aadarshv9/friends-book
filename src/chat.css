@@ -1,11 +1,12 @@
 .chat-container {
   position: fixed;
-  height: 400px;
+  height: auto;
   width: 300px;
   bottom: 0;
   right: 10px;
 }
 .chat-header {
+  cursor: pointer;
   font-size: 20px;
   padding: 10px;
   background: #6200ee;

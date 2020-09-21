@@ -16,7 +16,7 @@ export default function posts(state = [], action) {
         if (post._id === action.postId) {
           return {
             ...post,
-            comments: [action.comment, ...post.comments],
+            comments: [...post.comments, action.comment],
           };
         }
 

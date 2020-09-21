@@ -200,6 +200,10 @@ code {
   align-items: center;
   justify-content: space-between;
 }
+.nav .left-div h2 {
+  margin-left: 0.5rem;
+  color: white;
+}
 .logo {
   color: #fff;
   font-size: 35px;
@@ -226,9 +230,14 @@ nav .right-nav {
   font-size: 16px;
   line-height: 22px;
 }
+nav .nav-links {
+  display: flex;
+  align-items: center;
+}
 nav .nav-links ul {
   display: flex;
   list-style-type: none;
+  margin-bottom: 0;
 }
 nav .nav-links ul li {
   padding: 0 4px;
